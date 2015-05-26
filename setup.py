@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-__version__ = "0.1.0"
+__version__ = "1.0.0"
 
 def file_read(filename):
     filepath = os.path.join(os.path.dirname(__file__), filename)
@@ -13,13 +13,13 @@ setup(
     name = "frozenordereddict",
     version = __version__,
     packages = find_packages(),
-    install_requires = ["frozendict"],
+    install_requires = [],
     author = "Warren A. Smith",
     author_email = "warren@wandrsmith.net",
     description = "Frozen OrderedDict.",
-    long_description = file_read("README.md"),
+    long_description = file_read("README.rst"),
     license = "MIT",
     keywords = "ordereddict frozendict frozenordereddict orderedfrozendict ordered frozen dict",
     url = "https://github.com/wsmith323/frozenordereddict",
-    #test_suite = "tests",
+    test_suite = "tests",
 )
