@@ -13,7 +13,7 @@ class FrozenOrderedDict(Mapping):
     Frozen OrderedDict.
     """
 
-    def __init__(self, items=()):
+    def __init__(self, items=tuple()):
         self.__dict = OrderedDict(items)
         self.__hash = None
 

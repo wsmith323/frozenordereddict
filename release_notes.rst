@@ -11,3 +11,7 @@ frozenordereddict release notes
  * Refactor, removing frozendict dependency.
  * Add doc strings.
  * Add tests.
+
+1.0.1
+=====
+ * Minor refactor.
