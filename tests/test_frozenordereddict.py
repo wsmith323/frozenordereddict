@@ -6,12 +6,12 @@ from frozenordereddict import FrozenOrderedDict
 
 class TestFrozenOrderedDict(TestCase):
     ITEMS_1 = (
-        (2, "b"),
-        (1, "a"),
+        ("b", 2),
+        ("a", 1),
     )
     ITEMS_2 = (
-        (4, "d"),
-        (3, "c"),
+        ("d", 4),
+        ("c", 3),
     )
 
     ODICT_1 = OrderedDict(ITEMS_1)
@@ -58,10 +58,18 @@ class TestFrozenOrderedDict(TestCase):
 
     def test_copy_ordereddict_items(self):
         fod1 = FrozenOrderedDict(self.ITEMS_1)
-        fod2 = fod1.copy(OrderedDict(self.ITEMS_2))
+        fod2 = fod1.copy(self.ODICT_2)
 
         self.assertNotEqual(id(fod1), id(fod2))
         self.assertEqual(fod1.items() + list(self.ITEMS_2), fod2.items())
+
+    def test_copy_kwargs(self):
+        fod1 = FrozenOrderedDict(self.ITEMS_1)
+        fod2 = fod1.copy(**self.ODICT_2)
+
+        self.assertNotEqual(id(fod1), id(fod2))
+        self.assertEqual(dict(fod1.items() + self.ODICT_2.items()), fod2)
+
 
 
 

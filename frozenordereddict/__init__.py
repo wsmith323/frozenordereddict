@@ -4,7 +4,6 @@ try:
 except ImportError:
     from ordereddict import OrderedDict
 
-from itertools import chain
 import operator
 
 
@@ -13,8 +12,8 @@ class FrozenOrderedDict(Mapping):
     Frozen OrderedDict.
     """
 
-    def __init__(self, items=tuple()):
-        self.__dict = OrderedDict(items)
+    def __init__(self, *args, **kwargs):
+        self.__dict = OrderedDict(*args, **kwargs)
         self.__hash = None
 
     def __getitem__(self, item):
@@ -35,8 +34,10 @@ class FrozenOrderedDict(Mapping):
     def __repr__(self):
         return '<{} {!r}>'.format(self.__class__.__name__, self.items())
 
-    def copy(self, new_or_replacement_items=tuple()):
-        if isinstance(new_or_replacement_items, Mapping):
-            new_or_replacement_items = new_or_replacement_items.iteritems()
+    def copy(self, *args, **kwargs):
+        new_dict = self.__dict.copy()
 
-        return self.__class__(chain(self.iteritems(), new_or_replacement_items))
+        if args or kwargs:
+            new_dict.update(OrderedDict(*args, **kwargs))
+
+        return self.__class__(new_dict)
