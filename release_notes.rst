@@ -15,3 +15,9 @@ frozenordereddict release notes
 1.0.1
 =====
  * Minor refactor.
+
+1.1.0
+=====
+ * Allow keyword arguments for __init__() and copy().
+ * Add documentation to README.
+
