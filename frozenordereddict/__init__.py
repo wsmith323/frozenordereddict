@@ -32,7 +32,7 @@ class FrozenOrderedDict(Mapping):
         return self.__hash
 
     def __repr__(self):
-        return '<{} {!r}>'.format(self.__class__.__name__, self.items())
+        return '{}({!r})'.format(self.__class__.__name__, self.items())
 
     def copy(self, *args, **kwargs):
         new_dict = self.__dict.copy()
