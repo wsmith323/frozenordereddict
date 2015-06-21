@@ -7,10 +7,10 @@ FrozenOrderedDict was inspired by https://pypi.python.org/pypi/frozendict/
 (and borrows some code from it). With regards to immutability, it
 solves the same problems:
 
-  1. Because dictionaries are mutable, they are not hashable and
-     cannot be used in sets or as dictionary keys.
-  2. Nasty bugs can and do occur when mutable data structures are
-     passed around.
+  - Because dictionaries are mutable, they are not hashable and
+    cannot be used in sets or as dictionary keys.
+  - Nasty bugs can and do occur when mutable data structures are
+    passed around.
 
 It can be initialized just like a dict or OrderedDict. However, be
 advised that just like with OrderedDict, keyword arguments are not
