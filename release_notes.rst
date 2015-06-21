@@ -2,6 +2,10 @@
 frozenordereddict release notes
 ========================
 
+1.2.0
+=====
+ * Change __repr__ to be the same format as OrderedDict.
+
 1.1.1
 =====
  * Fix (reverse) order of release notes.
