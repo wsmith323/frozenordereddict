@@ -2,9 +2,19 @@
 frozenordereddict release notes
 ========================
 
-0.1.0
+1.1.1
 =====
- * Initial release.
+ * Fix (reverse) order of release notes.
+ * Minor format change in README.
+
+1.1.0
+=====
+ * Allow keyword arguments for __init__() and copy().
+ * Add documentation to README.
+
+1.0.1
+=====
+ * Minor refactor.
 
 1.0.0
 =====
@@ -12,12 +22,6 @@ frozenordereddict release notes
  * Add doc strings.
  * Add tests.
 
-1.0.1
+0.1.0
 =====
- * Minor refactor.
-
-1.1.0
-=====
- * Allow keyword arguments for __init__() and copy().
- * Add documentation to README.
-
+ * Initial release.
