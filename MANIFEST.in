@@ -1,4 +1,0 @@
-include README.md
-include release_notes.rst
-recursive-include docs *
-recursive-exclude docs/_build *
