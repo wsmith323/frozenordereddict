@@ -3,6 +3,7 @@ try:
     from collections import OrderedDict
 except ImportError:
     from ordereddict import OrderedDict
+from functools import reduce
 
 import operator
 
