@@ -19,11 +19,11 @@ class TestFrozenOrderedDict(TestCase):
 
     def test_init_from_items(self):
         fod = FrozenOrderedDict(self.ITEMS_1)
-        self.assertEqual(list(self.ITEMS_1), fod.items())
+        self.assertEqual(list(self.ITEMS_1), list(fod.items()))
 
     def test_init_from_ordereddict(self):
         fod = FrozenOrderedDict(self.ODICT_1)
-        self.assertEqual(list(self.ITEMS_1), fod.items())
+        self.assertEqual(list(self.ITEMS_1), list(fod.items()))
 
     def test_setitem(self):
         def doit():
@@ -54,21 +54,21 @@ class TestFrozenOrderedDict(TestCase):
         fod2 = fod1.copy(self.ITEMS_2)
 
         self.assertNotEqual(id(fod1), id(fod2))
-        self.assertEqual(fod1.items() + list(self.ITEMS_2), fod2.items())
+        self.assertEqual(list(fod1.items()) + list(self.ITEMS_2), list(fod2.items()))
 
     def test_copy_ordereddict_items(self):
         fod1 = FrozenOrderedDict(self.ITEMS_1)
         fod2 = fod1.copy(self.ODICT_2)
 
         self.assertNotEqual(id(fod1), id(fod2))
-        self.assertEqual(fod1.items() + list(self.ITEMS_2), fod2.items())
+        self.assertEqual(list(fod1.items()) + list(self.ITEMS_2), list(fod2.items()))
 
     def test_copy_kwargs(self):
         fod1 = FrozenOrderedDict(self.ITEMS_1)
         fod2 = fod1.copy(**self.ODICT_2)
 
         self.assertNotEqual(id(fod1), id(fod2))
-        self.assertEqual(dict(fod1.items() + self.ODICT_2.items()), fod2)
+        self.assertEqual(dict(list(fod1.items()) + list(self.ODICT_2.items())), fod2)
 
 
 

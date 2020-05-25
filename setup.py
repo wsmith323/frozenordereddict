@@ -2,12 +2,8 @@ import os
 
 from setuptools import setup, find_packages
 
-__version__ = "1.2.0"
-
-def file_read(filename):
-    filepath = os.path.join(os.path.dirname(__file__), filename)
-    with open(filepath) as flo:
-        return flo.read()
+with open(os.path.join(os.path.dirname(__file__), "frozenordereddict", 'VERSION.txt')) as f:
+    __version__ = f.read().strip()
 
 setup(
     name = "frozenordereddict",
@@ -17,9 +13,16 @@ setup(
     author = "Warren A. Smith",
     author_email = "warren@wandrsmith.net",
     description = "Frozen OrderedDict.",
-    long_description = file_read("README.rst"),
+    long_description = "An immutable wrapper around an OrderedDict",
+    long_description_content_type = "text/plain",
     license = "MIT",
     keywords = "ordereddict frozendict frozenordereddict orderedfrozendict ordered frozen dict",
     url = "https://github.com/wsmith323/frozenordereddict",
     test_suite = "tests",
+    classifiers = [
+        "License :: OSI Approved :: MIT License",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+    ],
 )

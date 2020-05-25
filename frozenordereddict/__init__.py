@@ -1,11 +1,21 @@
+
 from collections import Mapping
+
+try:
+    reduce
+except NameError:
+    from functools import reduce
+
 try:
     from collections import OrderedDict
 except ImportError:
     from ordereddict import OrderedDict
-from functools import reduce
 
 import operator
+import os
+
+with open(os.path.join(os.path.dirname(__file__), 'VERSION.txt')) as f:
+    __version__ = f.read().strip()
 
 
 class FrozenOrderedDict(Mapping):
@@ -28,12 +38,12 @@ class FrozenOrderedDict(Mapping):
 
     def __hash__(self):
         if self.__hash is None:
-            self.__hash = reduce(operator.xor, map(hash, self.iteritems()), 0)
+            self.__hash = reduce(operator.xor, map(hash, self.__dict.items()), 0)
 
         return self.__hash
 
     def __repr__(self):
-        return '{}({!r})'.format(self.__class__.__name__, self.items())
+        return '{}({!r})'.format(self.__class__.__name__, self.__dict.items())
 
     def copy(self, *args, **kwargs):
         new_dict = self.__dict.copy()

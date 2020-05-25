@@ -1,0 +1,3 @@
+include LICENSE.txt
+include frozenordereddict/VERSION.txt
+include release_notes.md
